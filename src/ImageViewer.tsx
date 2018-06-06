@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import {Animated, Dimensions, Easing, StyleSheet, ViewStyle} from 'react-native';
+import {Animated, Dimensions, Easing, Platform, StyleSheet, ViewStyle} from 'react-native';
 
 import {HorizontalContainer} from './HorizontalContainer';
 import {ImagePaner} from './ImagePaner';
@@ -233,7 +233,7 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
     const heightValue = this.state.height._value;
     const {onClose} = this.props;
 
-    if((yOffset <= 0 || yOffset >= 2 * heightValue) && onClose) {
+    if((yOffset <= 0 || yOffset >= 2 * heightValue || (Platform.OS === 'android' && Math.abs(yOffset - heightValue) > 150)) && onClose) {
       onClose();
     }
   }
