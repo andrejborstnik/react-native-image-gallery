@@ -233,7 +233,12 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
     const heightValue = this.state.height._value;
     const {onClose} = this.props;
 
-    if((yOffset <= 0 || yOffset >= 2 * heightValue || (Platform.OS === 'android' && Math.abs(yOffset - heightValue) > 150)) && onClose) {
+    if(
+      (yOffset <= 0 
+      || yOffset >= 2 * heightValue 
+      || (Platform.OS === 'android' && Math.abs(yOffset - heightValue) > 150)
+      ) 
+      && onClose) {
       onClose();
     }
   }
