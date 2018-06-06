@@ -9,6 +9,7 @@ export interface ImageGalleryProps {
     readonly infoDescriptionStyles?: ViewStyle;
     readonly infoTitleStyles?: ViewStyle;
     readonly onPress?: (imageId: string) => void;
+    readonly onClose?: () => void;
     readonly theme?: any;
     readonly topMargin?: number;
 }
