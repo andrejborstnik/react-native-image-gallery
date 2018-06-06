@@ -5,7 +5,6 @@ import {
   Dimensions,
   ImageURISource,
   Platform,
-  StatusBar,
   StyleSheet,
   TextStyle,
   TouchableWithoutFeedback,
@@ -178,8 +177,7 @@ export class ImagePaner extends React.PureComponent<ImagePanerProps> {
     const {source, theme, transition, zoomedImageMeasurements} = this.props;
     const {height, width} = Dimensions.get('window');
     const {
-      imageGalleryBgColor = '#000',
-      statusBarTheme = 'light-content'
+      imageGalleryBgColor = '#000'
     } = theme;
     const containerStyle = {
       backgroundColor: imageGalleryBgColor,
