@@ -19,6 +19,7 @@ export interface ImageGalleryProps {
   readonly infoDescriptionStyles?: ViewStyle;
   readonly infoTitleStyles?: ViewStyle;
   readonly onPress?: (imageId: string) => void;
+  readonly onClose?: () => void;
   readonly theme?: any;
   readonly topMargin?: number;
 }
@@ -101,7 +102,12 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
   }
 
   closeImageViewer(): void {
+    const {onClose} = this.props;
     this.setState({imageId: undefined, showImageViewer: false});
+
+    if(onClose) {
+      onClose();
+    }
   }
 
   onChangePhoto(imageId: string): void {
