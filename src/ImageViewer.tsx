@@ -136,7 +136,7 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
     const {dismissScrollProgress, height, openProgress} = this.state;
     let gestureDismissProgress;
 
-    if(dismissScrollProgress && Platform.OS === 'ios') {
+    if(dismissScrollProgress) {
       gestureDismissProgress = dismissScrollProgress.interpolate({
         inputRange: [
           0,
@@ -361,40 +361,40 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
       imageWidth
     } = this.state;
 
-    if(Platform.OS === 'ios') {
-      const onContainerScroll = Animated.event([{nativeEvent: {contentOffset: {y: dismissScrollProgress}}}],
-        {useNativeDriver: true, listener: this.onScroll}
-      );
-
-      return (
-        <Animated.ScrollView
-          ref={this.handleRef}
-          onScroll={onContainerScroll}
-          scrollEventThrottle={1}
-          pagingEnabled={true}
-          showsVerticalScrollIndicator={false}>
-          <ScrollSpacerView width={width} height={height} />
-          <HorizontalContainer
-            images={images}
-            imageId={imageId}
-            height={height['_value']}
-            imageHeight={openImageMeasurements ? openImageMeasurements.height : 0}
-            imageWidth={openImageMeasurements ? openImageMeasurements.width : 0}
-            realImageHeight={imageHeight}
-            realImageWidth={imageWidth}
-            openProgress={openProgress}
-            dismissProgress={dismissProgress}
-            transitionProgress={transitionProgress}
-            onChange={onChange}
-            onPressImage={this.onPressImage}
-            openImageMeasurements={openImageMeasurements || {}}
-            width={width['_value']} />
-          <ScrollSpacerView width={width} height={height} />
-        </Animated.ScrollView>
-      );
-    }
+    //if(Platform.OS === 'ios') {
+    const onContainerScroll = Animated.event([{nativeEvent: {contentOffset: {y: dismissScrollProgress}}}],
+      {useNativeDriver: true, listener: this.onScroll}
+    );
 
     return (
+      <Animated.ScrollView
+        ref={this.handleRef}
+        onScroll={onContainerScroll}
+        scrollEventThrottle={1}
+        pagingEnabled={true}
+        showsVerticalScrollIndicator={false}>
+        <ScrollSpacerView width={width} height={height} />
+        <HorizontalContainer
+          images={images}
+          imageId={imageId}
+          height={height['_value']}
+          imageHeight={openImageMeasurements ? openImageMeasurements.height : 0}
+          imageWidth={openImageMeasurements ? openImageMeasurements.width : 0}
+          realImageHeight={imageHeight}
+          realImageWidth={imageWidth}
+          openProgress={openProgress}
+          dismissProgress={dismissProgress}
+          transitionProgress={transitionProgress}
+          onChange={onChange}
+          onPressImage={this.onPressImage}
+          openImageMeasurements={openImageMeasurements || {}}
+          width={width['_value']} />
+        <ScrollSpacerView width={width} height={height} />
+      </Animated.ScrollView>
+    );
+    //}
+
+    /*return (
       <HorizontalContainer
         dismissProgress={dismissProgress}
         height={height['_value']}
@@ -410,7 +410,7 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
         realImageHeight={imageHeight}
         transitionProgress={transitionProgress}
         width={width['_value']} />
-    );
+    );*/
   }
 
   renderTransitionView(): JSX.Element {
