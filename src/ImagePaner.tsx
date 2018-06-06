@@ -199,7 +199,6 @@ export class ImagePaner extends React.PureComponent<ImagePanerProps> {
 
     return (
       <Animated.View style={containerStyle}>
-        <StatusBar animated={true} hidden={true} barStyle={statusBarTheme} />
         <Animated.ScrollView ref={this.handleRef} horizontal={true} bounces={true} style={scrollStyle}>
           <Animated.Image source={source} onLoad={this.onLoad} style={imageStyle} />
         </Animated.ScrollView>
