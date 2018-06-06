@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import {Animated, Dimensions, Easing, Platform, StyleSheet, ViewStyle} from 'react-native';
+import {Animated, Dimensions, Easing, StyleSheet, ViewStyle} from 'react-native';
 
 import {HorizontalContainer} from './HorizontalContainer';
 import {ImagePaner} from './ImagePaner';
@@ -361,7 +361,7 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
       imageWidth
     } = this.state;
 
-    //if(Platform.OS === 'ios') {
+    // if(Platform.OS === 'ios') {
     const onContainerScroll = Animated.event([{nativeEvent: {contentOffset: {y: dismissScrollProgress}}}],
       {useNativeDriver: true, listener: this.onScroll}
     );
@@ -392,9 +392,9 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
         <ScrollSpacerView width={width} height={height} />
       </Animated.ScrollView>
     );
-    //}
+    // }
 
-    /*return (
+    /* return (
       <HorizontalContainer
         dismissProgress={dismissProgress}
         height={height['_value']}
@@ -410,7 +410,7 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
         realImageHeight={imageHeight}
         transitionProgress={transitionProgress}
         width={width['_value']} />
-    );*/
+    ); */
   }
 
   renderTransitionView(): JSX.Element {
