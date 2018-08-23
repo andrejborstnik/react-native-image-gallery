@@ -12,6 +12,7 @@ export interface ImageGalleryProps {
     readonly onClose?: () => void;
     readonly theme?: any;
     readonly topMargin?: number;
+    readonly closeIcon?: any;
 }
 export interface ImageGalleryState {
     readonly imageId?: string;
