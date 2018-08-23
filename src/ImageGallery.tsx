@@ -120,7 +120,7 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
     if (closeIcon) {
         return (
             <TouchableOpacity onPress={this.closeImageViewer}
-                              style={{position: 'absolute', top: 20, left: 20, zIndex: 1}}>
+                              style={{position: 'absolute', top: 20, left: 20, padding: 20, zIndex: 1}}>
                 {closeIcon}
             </TouchableOpacity>
         );
