@@ -11,7 +11,6 @@ export interface ImageViewerProps {
     readonly onChange: (imageId: string) => void;
     readonly onClose: () => void;
     readonly theme?: any;
-    readonly closeIcon?: any;
 }
 export interface ImageViewerState {
     readonly width?: any;

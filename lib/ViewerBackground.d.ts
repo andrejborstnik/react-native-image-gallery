@@ -6,8 +6,6 @@ export interface ViewerBackgroundProps {
     readonly inputRange: number[];
     readonly outputRange: number[];
     readonly theme: any;
-    readonly onClose: () => void;
-    readonly closeIcon?: any;
 }
 export declare class ViewerBackground extends React.PureComponent<ViewerBackgroundProps> {
     static propTypes: object;

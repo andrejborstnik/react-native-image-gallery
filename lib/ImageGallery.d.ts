@@ -32,6 +32,7 @@ export declare class ImageGallery extends React.Component<ImageGalleryProps, Ima
     openImageViewer(imageId: string): void;
     closeImageViewer(): void;
     onChangePhoto(imageId: string): void;
+    renderCloseIcon(): JSX.Element;
     renderModal(): JSX.Element;
     render(): JSX.Element;
 }
