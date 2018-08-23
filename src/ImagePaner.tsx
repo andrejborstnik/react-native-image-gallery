@@ -157,7 +157,7 @@ export class ImagePaner extends React.PureComponent<ImagePanerProps> {
           </Animated.View>
           <TouchableWithoutFeedback onPress={onPress}>
             <Animated.View style={[viewStyles.closeTextContainer, {opacity: this.buttonOpacity}]}>
-              <Ionicons name="ios-close-circle-outline" style={themeIconStyle} />
+              <Ionicons name="ios-resize" style={themeIconStyle} />
             </Animated.View>
           </TouchableWithoutFeedback>
         </Animated.View>
@@ -166,7 +166,7 @@ export class ImagePaner extends React.PureComponent<ImagePanerProps> {
       return (
         <TouchableWithoutFeedback onPress={onPress}>
           <Animated.View style={[viewStyles.closeContainer, {opacity: this.buttonOpacity}]}>
-            <Ionicons name="ios-close-circle-outline" style={themeIconStyle} />
+            <Ionicons name="ios-resize" style={themeIconStyle} />
           </Animated.View>
         </TouchableWithoutFeedback>
       );
