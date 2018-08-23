@@ -22,6 +22,7 @@ export interface ImageGalleryProps {
   readonly onClose?: () => void;
   readonly theme?: any;
   readonly topMargin?: number;
+  readonly closeIcon?: any;
 }
 
 export interface ImageGalleryState {
@@ -115,7 +116,7 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
   }
 
   renderModal(): JSX.Element {
-    const {images, infoDescriptionStyles, infoTitleStyles} = this.props;
+    const {images, infoDescriptionStyles, infoTitleStyles, closeIcon} = this.props;
     const {imageId, showImageViewer} = this.state;
 
     if(showImageViewer && imageId) {
@@ -131,6 +132,7 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
             images={images}
             infoTitleStyles={infoTitleStyles}
             infoDescriptionStyles={infoDescriptionStyles}
+            closeIcon={closeIcon}
             onChange={this.onChangePhoto}
             onClose={this.closeImageViewer}
             theme={this.componentTheme} />

@@ -24,6 +24,7 @@ export interface ImageViewerProps {
   readonly onChange: (imageId: string) => void;
   readonly onClose: () => void;
   readonly theme?: any;
+  readonly closeIcon?: any;
 }
 
 export interface ImageViewerState {
@@ -452,7 +453,7 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
   }
 
   render(): JSX.Element {
-    const {imageId, images, theme} = this.props;
+    const {imageId, images, theme, closeIcon, onClose} = this.props;
     const {
       dismissProgress,
       dismissScrollProgress,
@@ -484,6 +485,8 @@ export class ImageViewer extends React.Component<ImageViewerProps, ImageViewerSt
             opacityProgress={dismissScrollProgress}
             inputRange={[0, height._value, height._value * 2]}
             outputRange={[0.02, 1, 0.02]}
+            closeIcon={closeIcon}
+            onClose={onClose}
             theme={theme} />
           {this.renderVerticalScrollView(scrollProps)}
         </Animated.View>
